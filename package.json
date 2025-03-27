@@ -1,0 +1,15 @@
+{
+  "name": "movie-pjt",
+  "version": "1.0.0",
+  "description": "1. 영화 리뷰를 작성 할 수 있는 프로젝트를 만듬!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -80,5 +80,29 @@ db.run("DELETE FROM movies", (err) => {
     }
 });
 
+
+
+
+// 댓글 테이블 생성
+const createCommentsTableQuery = `
+CREATE TABLE IF NOT EXISTS comments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_id INTEGER,
+    author TEXT,
+    content TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
+`;
+
+db.run(createCommentsTableQuery, (err) => {
+    if (err) {
+        console.error('Error creating comments table:', err.message);
+    } else {
+        console.log('Comments table created or already exists.');
+    }
+});
+
+
 // 연결 종료
 db.close();

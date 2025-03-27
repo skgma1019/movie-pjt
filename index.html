@@ -177,7 +177,9 @@
                     : 'https://via.placeholder.com/150?text=No+Image';
 
                 movieElement.innerHTML = `
-                    <img src="${posterPath}" alt="${movie.title}">
+                    <a href="movieDetail.html?id=${movie.id}">
+                        <img src="${posterPath}" alt="${movie.title}">
+                    </a>
                     <div class="movie-info">
                         <div class="movie-title">${movie.title}</div>
                         <div class="movie-rating">⭐ ${movie.vote_average}</div>

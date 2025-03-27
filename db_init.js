@@ -45,9 +45,10 @@ db.run(createTableQuery, (err) => {
 
     // 데이터 삽입
     const insertQuery = `
-    INSERT INTO movies (id, title, original_title, overview, release_date, poster_path, backdrop_path, popularity, vote_average, vote_count, genre_ids)
+    INSERT OR IGNORE INTO movies (id, title, original_title, overview, release_date, poster_path, backdrop_path, popularity, vote_average, vote_count, genre_ids)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     `;
+    
 
     movies.forEach((movie) => {
         db.run(insertQuery, [
@@ -70,6 +71,13 @@ db.run(createTableQuery, (err) => {
     });
 
     console.log('Data insertion complete.');
+});
+db.run("DELETE FROM movies", (err) => {
+    if (err) {
+        console.error("Error clearing table:", err.message);
+    } else {
+        console.log("Existing records cleared.");
+    }
 });
 
 // 연결 종료
